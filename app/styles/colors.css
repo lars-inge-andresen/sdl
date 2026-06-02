@@ -1,0 +1,25 @@
+/* Created by Lars Inge on 26th February 2026 */
+
+:root {
+  --primary-headerBg: #e25303;
+  --primary-headerFontColor: #000000;
+  --primary-headerHighlight: #ffffff;
+
+  --primary-navigationBg: #333333;
+  --primary-navigationFontColor: #ffffff;
+  --primary-navigationHighligt: #e25303;
+
+  --primary-menuBg: #a8a8a8;
+  --primary-menuFontColor: #000000;
+  --primary-menuHighlight: #e25303;
+
+  --primary-contentBg: #e4e4e4;
+  --primary-contentFontColor: #000000;
+  --primary-contentHighlight: #e25303;
+
+  --primary-footerBg: #e25303;
+  --primary-footerFontColor: #000000;
+  --primary-footerHighlight: #ffffff;
+
+  --warning-fontColor: #ff0000;
+}

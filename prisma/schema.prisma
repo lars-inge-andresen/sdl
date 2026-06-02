@@ -1,0 +1,127 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  GLOBALADMIN
+  LOCALADMIN
+  OFFICE
+  PM
+  CHIEF
+  OPERATOR
+  CLIENT
+  GUEST
+}
+
+model Developer {
+  developer_id               Int      @id @default(autoincrement())
+  createdAt                  DateTime @default(now()) @db.Timestamptz(4)
+  shortname                  String   @db.VarChar(10)
+  fullname                   String   @db.VarChar(25)
+  primary_street             String   @db.VarChar(100)
+  primary_postal_code        String   @db.VarChar(20)
+  primary_city               String   @db.VarChar(50)
+  primary_country            String   @db.VarChar(50)
+  secondary_street           String?  @db.VarChar(100)
+  secondary_postal_code      String?  @db.VarChar(20)
+  secondary_city             String?  @db.VarChar(50)
+  secondary_country          String?  @db.VarChar(50)
+  primary_email              String   @db.VarChar(50)
+  primary_phone              String   @db.VarChar(20)
+  primary_fax                String?  @db.VarChar(20)
+  secondary_email            String?  @db.VarChar(50)
+  secondary_phone            String?  @db.VarChar(20)
+  secondary_fax              String?  @db.VarChar(20)
+  primary_contact            String   @db.VarChar(50)
+  primary_contact_position   String   @db.VarChar(50)
+  primary_contact_email      String?  @db.VarChar(50)
+  primary_contact_phone      String?  @db.VarChar(20)
+  secondary_contact          String?  @db.VarChar(50)
+  secondary_contact_position String?  @db.VarChar(50)
+  secondary_contact_email    String?  @db.VarChar(50)
+  secondary_contact_phone    String?  @db.VarChar(20)
+}
+
+model Status {
+  status_id  Int          @id @default(autoincrement())
+  createdAt  DateTime     @default(now()) @db.Timestamptz(4)
+  updatedAt  DateTime     @default(now()) @db.Timestamptz(4)
+  shortname  String       @db.VarChar(10)
+  fullname   String       @db.VarChar(25)
+  Department Department[]
+  User       User[]
+}
+
+model Department {
+  department_id Int      @id @default(autoincrement())
+  createdAt     DateTime @default(now()) @db.Timestamptz(4)
+  updatedAt     DateTime @default(now()) @db.Timestamptz(4)
+  shortname     String   @db.VarChar(10)
+  fullname      String   @db.VarChar(25)
+  description   String?  @db.VarChar(255)
+  status_id     Int
+  Status        Status   @relation(fields: [status_id], references: [status_id])
+  User          User[]
+}
+
+model User {
+  user_id          Int        @id @default(autoincrement())
+  createdAt        DateTime   @default(now()) @db.Timestamptz(4)
+  updatedAt        DateTime   @default(now()) @db.Timestamptz(4)
+  auth_id          Int        @unique @default(autoincrement())
+  login            String     @db.VarChar(10)
+  firstname        String     @db.VarChar(25)
+  surname          String?    @db.VarChar(25)
+  position         String     @db.VarChar(50)
+  email            String     @db.VarChar(50)
+  password         String     @db.VarChar(255)
+  confirm_password String     @db.VarChar(255)
+  role             Role       @default(GUEST)
+  status_id        Int
+  department_id    Int
+  Department       Department @relation(fields: [department_id], references: [department_id])
+  Status           Status     @relation(fields: [status_id], references: [status_id])
+}
+
+model Customer {
+  customer_id                Int      @id @default(autoincrement())
+  createdAt                  DateTime @default(now()) @db.Timestamptz(4)
+  updatedAt                  DateTime @default(now()) @db.Timestamptz(4)
+  shortname                  String   @db.VarChar(10)
+  fullname                   String   @db.VarChar(25)
+  primary_street             String   @db.VarChar(100)
+  primary_postal_code        String   @db.VarChar(20)
+  primary_city               String   @db.VarChar(50)
+  primary_country            String   @db.VarChar(50)
+  secondary_street           String?  @db.VarChar(100)
+  secondary_postal_code      String?  @db.VarChar(20)
+  secondary_city             String?  @db.VarChar(50)
+  secondary_country          String?  @db.VarChar(50)
+  primary_email              String   @db.VarChar(50)
+  primary_phone              String   @db.VarChar(20)
+  primary_fax                String?  @db.VarChar(20)
+  secondary_email            String?  @db.VarChar(50)
+  secondary_phone            String?  @db.VarChar(20)
+  secondary_fax              String?  @db.VarChar(20)
+  primary_contact            String   @db.VarChar(50)
+  primary_contact_position   String   @db.VarChar(50)
+  primary_contact_email      String?  @db.VarChar(50)
+  primary_contact_phone      String?  @db.VarChar(20)
+  secondary_contact          String?  @db.VarChar(50)
+  secondary_contact_position String?  @db.VarChar(50)
+  secondary_contact_email    String?  @db.VarChar(50)
+  secondary_contact_phone    String?  @db.VarChar(20)
+}
+
+model Vessel {
+  vessel_id Int      @id @default(autoincrement())
+  createdAt DateTime @default(now()) @db.Timestamptz(4)
+  updatedAt DateTime @default(now()) @db.Timestamptz(4)
+  shortname String   @db.VarChar(10)
+  fullname  String   @db.VarChar(25)
+}

@@ -1,0 +1,30 @@
+/* Created by Lars-Inge Andresen */
+
+export default [
+  {
+    shortname: "AGEO",
+    fullname: "Aurora Geo Services AS",
+    primary_street: "Auroraveien 1",
+    primary_postal_code: "9990",
+    primary_city: "Båtsfjord",
+    primary_country: "Norway",
+    secondary_street: null,
+    secondary_postal_code: null,
+    secondary_city: null,
+    secondary_country: null,
+    primary_email: "post@aurorageo.no",
+    primary_phone: "+48 915 63 179",
+    primary_fax: null,
+    secondary_email: null,
+    secondary_phone: null,
+    secondary_fax: null,
+    primary_contact: "Lars-Inge Andresen",
+    primary_contact_position: "CEO",
+    primary_contact_email: "lars@aurorageo.no",
+    primary_contact_phone: "+47 915 63 179",
+    secondary_contact: "Eirik F. Andresen",
+    secondary_contact_position: "CTO",
+    secondary_contact_email: null,
+    secondary_contact_phone: null,
+  },
+];

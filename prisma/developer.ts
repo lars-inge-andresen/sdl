@@ -1,0 +1,30 @@
+/* Created by Lars-Inge Andresen */
+
+export default [
+  {
+    shortname: "MT",
+    fullname: "Modellteknikk Arendal AS",
+    primary_street: "Gamle Songevei 8",
+    primary_postal_code: "4841",
+    primary_city: "Arendal",
+    primary_country: "Norway",
+    secondary_street: null,
+    secondary_postal_code: null,
+    secondary_city: null,
+    secondary_country: null,
+    primary_email: "post@modellteknikk.no",
+    primary_phone: "+48 915 63 179",
+    primary_fax: null,
+    secondary_email: null,
+    secondary_phone: null,
+    secondary_fax: null,
+    primary_contact: "Lars-Inge Andresen",
+    primary_contact_position: "CEO",
+    primary_contact_email: "lars@modellteknikk.no",
+    primary_contact_phone: "+47 915 63 179",
+    secondary_contact: "Eirik F. Andresen",
+    secondary_contact_position: "CTO",
+    secondary_contact_email: null,
+    secondary_contact_phone: null,
+  },
+];

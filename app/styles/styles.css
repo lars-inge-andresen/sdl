@@ -96,6 +96,18 @@ body {
   a.active {
     color: var(--primary-menuHighlight);
   }
+
+  .menu {
+    display: flex;
+
+    .left {
+      flex-grow: 1;
+    }
+
+    .right {
+      flex-basis: 200px;
+    }
+  }
 }
 
 /* Content */

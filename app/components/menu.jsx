@@ -24,52 +24,57 @@ export default function Menu({ items, hideLogout, userRole }) {
     <>
       <div className="menu__container">
         <div className="menu">
-          {items
-            .filter((item) => !item.role || canAccess(userRole, item.role))
-            .map((item) => {
-              if (item.external) {
+          <div className="left">
+            TEST
+            {items
+              .filter((item) => !item.role || canAccess(userRole, item.role))
+              .map((item) => {
+                if (item.external) {
+                  return (
+                    <div key={item.to} className="menu_link">
+                      <a href={item.to} target="_blank" rel="noreferrer">
+                        <div className="menu_icon">
+                          <FontAwesomeIcon icon={item.icon} />
+                        </div>
+                        <div className="menu_label">{item.label}</div>
+                      </a>
+                    </div>
+                  );
+                }
+
                 return (
                   <div key={item.to} className="menu_link">
-                    <a href={item.to} target="_blank" rel="noreferrer">
+                    <NavLink to={item.to}>
                       <div className="menu_icon">
                         <FontAwesomeIcon icon={item.icon} />
                       </div>
                       <div className="menu_label">{item.label}</div>
-                    </a>
+                    </NavLink>
                   </div>
                 );
-              }
+              })}
+          </div>
 
-              return (
-                <div key={item.to} className="menu_link">
-                  <NavLink to={item.to}>
-                    <div className="menu_icon">
-                      <FontAwesomeIcon icon={item.icon} />
-                    </div>
-                    <div className="menu_label">{item.label}</div>
-                  </NavLink>
-                </div>
-              );
-            })}
+          <div className="right">
+            {!hideLogout && (
+              <div className="login">
+                {/* <Form method="post" action="/logout"> */}
+                <button type="submit" className="btn btn-primary btn-sm">
+                  Log out
+                </button>
+                {/*     </Form> */}
+              </div>
+            )}
+
+            {hideLogout && (
+              <div className="login">
+                <a className="btn btn-primary btn-sm" href="/login">
+                  Log in
+                </a>
+              </div>
+            )}
+          </div>
         </div>
-
-        {!hideLogout && (
-          <div className="login">
-            {/* <Form method="post" action="/logout"> */}
-            <button type="submit" className="btn btn-primary btn-sm">
-              Log out
-            </button>
-            {/*     </Form> */}
-          </div>
-        )}
-
-        {hideLogout && (
-          <div className="login">
-            <a className="btn btn-primary btn-sm" href="/login">
-              Log in
-            </a>
-          </div>
-        )}
       </div>
     </>
   );

@@ -79,7 +79,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           user={data.user}
         />
 
-        <Navigation department={data.activeDepartments} />
+        <Navigation activeDepartments={data.activeDepartments} />
 
         <Menu items={menu__links} hideLogout={undefined} userRole={undefined} />
 
@@ -115,14 +115,19 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   }
 
   return (
-    <main className="pt-16 p-4 container mx-auto">
-      <h1>{message}</h1>
-      <p>{details}</p>
-      {stack && (
-        <pre className="w-full p-4 overflow-x-auto">
-          <code>{stack}</code>
-        </pre>
-      )}
+    <main className="pt-10 p-10 container mx-auto">
+      <div className="content">
+        <div className="warning">
+          <h1 className="text-xl font-bold">{message}</h1>
+          <p>{details}</p>
+        </div>
+
+        {stack && (
+          <pre className="w-full p-4 overflow-x-auto">
+            <code>{stack}</code>
+          </pre>
+        )}
+      </div>
     </main>
   );
 }

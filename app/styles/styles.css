@@ -21,6 +21,9 @@ body {
   min-height: 100vh;
 }
 
+.warning {
+  color: var(--warning-fontColor);
+}
 .header,
 .navigation,
 .menu,
@@ -72,12 +75,14 @@ body {
   .navigation {
     display: flex;
     flex-grow: 1;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
 
     .navigation__link {
       display: flex;
       text-align: center;
+      margin: 10px 6px;
     }
   }
 }

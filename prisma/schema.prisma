@@ -53,8 +53,8 @@ model Status {
   updatedAt  DateTime     @default(now()) @db.Timestamptz(4)
   shortname  String       @db.VarChar(10)
   fullname   String       @db.VarChar(25)
-  Department Department[]
-  User       User[]
+  department Department[]
+  user       User[]
 }
 
 model Department {
@@ -65,8 +65,8 @@ model Department {
   fullname      String   @db.VarChar(25)
   description   String?  @db.VarChar(255)
   status_id     Int
-  Status        Status   @relation(fields: [status_id], references: [status_id])
-  User          User[]
+  status        Status   @relation(fields: [status_id], references: [status_id])
+  user          User[]
 }
 
 model User {
@@ -84,8 +84,8 @@ model User {
   role             Role       @default(GUEST)
   status_id        Int
   department_id    Int
-  Department       Department @relation(fields: [department_id], references: [department_id])
-  Status           Status     @relation(fields: [status_id], references: [status_id])
+  department       Department @relation(fields: [department_id], references: [department_id])
+  status           Status     @relation(fields: [status_id], references: [status_id])
 }
 
 model Customer {

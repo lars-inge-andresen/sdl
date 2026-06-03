@@ -58,7 +58,7 @@ export default function Navigation({ activeDepartments }: NavigationProps) {
               <div key={index} className="navigation__link">
                 <NavLink to={department.shortname}>
                   <FontAwesomeIcon
-                    icon={pageIcon as unknown as IconDefinition}
+                    icon={departmentIcon as unknown as IconName}
                   />
                   <div>{department.fullname}</div>
                 </NavLink>

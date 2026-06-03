@@ -9,7 +9,13 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router";
 import type { Key } from "react";
-import type { IconProp } from "@fortawesome/fontawesome-svg-core";
+import {
+  icon,
+  type Icon,
+  type IconDefinition,
+  type IconName,
+  type IconProp,
+} from "@fortawesome/fontawesome-svg-core";
 
 /* Local resources */
 import departmentIcon from "~/constants/department-icon";
@@ -19,12 +25,15 @@ interface NavigationProps {
     [key: string]: any;
     shortname: string;
     fullname: string;
+    pageIcon: Object;
   };
 }
 
 export default function Navigation({ activeDepartments }: NavigationProps) {
   for (const key of Object.keys(activeDepartments)) {
   }
+
+  const pageIcon = activeDepartments.shortname;
 
   return (
     <>
@@ -47,10 +56,10 @@ export default function Navigation({ activeDepartments }: NavigationProps) {
               index: Key,
             ) => (
               <div key={index} className="navigation__link">
-                <NavLink to={department.shortname.toLowerCase()}>
-                  {/*                   <FontAwesomeIcon
-                    icon={departmentIcon[department.shortname] as IconProp}
-                  /> */}
+                <NavLink to={department.shortname}>
+                  <FontAwesomeIcon
+                    icon={pageIcon as unknown as IconDefinition}
+                  />
                   <div>{department.fullname}</div>
                 </NavLink>
               </div>

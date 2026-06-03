@@ -58,11 +58,11 @@ export async function loader() {
 export function Layout({ children }: { children: React.ReactNode }) {
   const data = useLoaderData();
   const params = useParams();
-  const matches = useMatches();
+  /* const matches = useMatches();
   const matchWithMenu = matches.find(
     (match) => match.handle && match.handle.menu__links,
   );
-  const menu__links = matchWithMenu?.handle.menu__links(params) ?? [];
+  const menu__links = matchWithMenu?.handle.menu__links(params) ?? []; */
 
   return (
     <html lang="en">
@@ -81,7 +81,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
         <Navigation activeDepartments={data.activeDepartments} />
 
-        <Menu items={menu__links} hideLogout={undefined} userRole={undefined} />
+        {/* <Menu items={menu__links} hideLogout={undefined} userRole={undefined} /> */}
 
         <div className="content__container">{children}</div>
 

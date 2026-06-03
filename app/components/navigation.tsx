@@ -9,10 +9,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router";
 import type { Key } from "react";
+import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 /* Local resources */
 import departmentIcon from "~/constants/department-icon";
-import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 interface NavigationProps {
   activeDepartments: {
@@ -48,9 +48,9 @@ export default function Navigation({ activeDepartments }: NavigationProps) {
             ) => (
               <div key={index} className="navigation__link">
                 <NavLink to={department.shortname.toLowerCase()}>
-                  <FontAwesomeIcon
+                  {/*                   <FontAwesomeIcon
                     icon={departmentIcon[department.shortname] as IconProp}
-                  />
+                  /> */}
                   <div>{department.fullname}</div>
                 </NavLink>
               </div>

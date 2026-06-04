@@ -21,9 +21,14 @@ body {
   min-height: 100vh;
 }
 
+p {
+  padding: 0.3em 0px;
+}
+
 .warning {
   color: var(--warning-fontColor);
 }
+
 .header,
 .navigation,
 .menu,
@@ -105,7 +110,14 @@ body {
   .menu {
     display: flex;
 
+    .menu__link {
+      display: flex;
+      text-align: center;
+      margin: 10px 6px;
+    }
+
     .left {
+      display: flex;
       flex-grow: 1;
     }
 
@@ -125,6 +137,7 @@ body {
     .content__header {
       display: flex;
       align-items: center;
+      padding: 10px 0px;
 
       .content__title {
         flex-grow: 1;
@@ -134,6 +147,11 @@ body {
         flex-basis: 50px;
         font-size: 1.5em;
       }
+    }
+
+    .login__form {
+      max-width: 800px;
+      margin: auto;
     }
   }
 }

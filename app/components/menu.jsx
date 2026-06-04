@@ -12,26 +12,18 @@ import { NavLink } from "react-router";
 /* Local resources */
 import { canAccess } from "../utilities/roles.js";
 
-/* interface MenuProps {
-  items: any;
-  item: any;
-  hideLogout: any;
-  userRole: any;
-} */
-
 export default function Menu({ items, hideLogout, userRole }) {
   return (
     <>
       <div className="menu__container">
         <div className="menu">
           <div className="left">
-            TEST
             {items
               .filter((item) => !item.role || canAccess(userRole, item.role))
               .map((item) => {
                 if (item.external) {
                   return (
-                    <div key={item.to} className="menu_link">
+                    <div key={item.to} className="menu__link">
                       <a href={item.to} target="_blank" rel="noreferrer">
                         <div className="menu_icon">
                           <FontAwesomeIcon icon={item.icon} />
@@ -43,7 +35,7 @@ export default function Menu({ items, hideLogout, userRole }) {
                 }
 
                 return (
-                  <div key={item.to} className="menu_link">
+                  <div key={item.to} className="menu__link">
                     <NavLink to={item.to}>
                       <div className="menu_icon">
                         <FontAwesomeIcon icon={item.icon} />

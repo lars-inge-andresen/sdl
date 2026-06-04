@@ -6,34 +6,32 @@ import {
   faHome,
   faInfoCircle,
   faLock,
+  type IconDefinition,
 } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router";
-import type { Key } from "react";
-import {
-  icon,
-  type Icon,
-  type IconDefinition,
-  type IconName,
-  type IconProp,
-} from "@fortawesome/fontawesome-svg-core";
 
 /* Local resources */
+import departmentString from "~/constants/department-string";
 import departmentIcon from "~/constants/department-icon";
+import type { Key } from "react";
+import DEP_ICON from "~/constants/department-icon";
 
 interface NavigationProps {
   activeDepartments: {
     [key: string]: any;
     shortname: string;
     fullname: string;
-    pageIcon: Object;
   };
 }
 
 export default function Navigation({ activeDepartments }: NavigationProps) {
   for (const key of Object.keys(activeDepartments)) {
   }
+  const dep = activeDepartments.map((departments: { shortname: string }) =>
+    departments.shortname.toUpperCase(),
+  );
 
-  const pageIcon = activeDepartments.shortname;
+  /*   const icon: [string, IconDefinition] = DEP_ICON[dep.shortname.toUpperCase()]; */
 
   return (
     <>
@@ -57,9 +55,8 @@ export default function Navigation({ activeDepartments }: NavigationProps) {
             ) => (
               <div key={index} className="navigation__link">
                 <NavLink to={department.shortname}>
-                  <FontAwesomeIcon
-                    icon={departmentIcon as unknown as IconName}
-                  />
+                  {dep.shortname}
+                  {/* <FontAwesomeIcon icon={icon} /> */}
                   <div>{department.fullname}</div>
                 </NavLink>
               </div>

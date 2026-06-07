@@ -27,7 +27,7 @@ export default function Navigation({ activeDepartments }: NavigationProps) {
   for (const key of Object.keys(activeDepartments)) {
   }
 
-  const icon = DEP_ICON;
+  const navIcon = DEP_ICON;
 
   return (
     <>
@@ -51,10 +51,8 @@ export default function Navigation({ activeDepartments }: NavigationProps) {
             ) => (
               <div key={index} className="navigation__link">
                 <NavLink to={department.shortname}>
-                  {/* {department.shortname} */}
-
                   <FontAwesomeIcon
-                    icon={icon[department.shortname.toUpperCase()]}
+                    icon={navIcon[department.shortname.toUpperCase()]}
                   />
                   <div>{department.fullname}</div>
                 </NavLink>

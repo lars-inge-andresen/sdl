@@ -27,7 +27,7 @@ export const loader = async ({ request, params }) => {
   if (DEP_META[department.shortname.toUpperCase()]?.protected !== false) {
     await requireAuthSession(request);
   }
-  console.log(department);
+  /*   console.log(department); */
   return data({ department });
 };
 
@@ -39,13 +39,12 @@ export default function Department() {
   const { department } = useLoaderData();
 
   const pageTitle =
-    DEP_STRING[department.shortname]?.title ?? department.fullname;
-  const pageDescription =
-    DEP_STRING[department.shortname]?.title ?? department.fullname;
+    DEP_STRING[department.shortname.toUpperCase()]?.title ??
+    department.fullname;
   const pageIcon = DEP_ICON;
-
-  /*   const pageDescription =
-    DEP_STRING[department.shortname()]?.description ?? department.description; */
+  const pageDescription =
+    DEP_STRING[department.shortname.toUpperCase()]?.description ??
+    department.fullname;
 
   return (
     <>
@@ -60,7 +59,6 @@ export default function Department() {
             />
           </div>
         </div>
-        {department.shortname}
         <p>{pageDescription}</p>
 
         <Outlet />

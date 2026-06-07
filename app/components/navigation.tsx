@@ -11,10 +11,9 @@ import {
 import { NavLink } from "react-router";
 
 /* Local resources */
-import departmentString from "~/constants/department-string";
-import departmentIcon from "~/constants/department-icon";
 import type { Key } from "react";
 import DEP_ICON from "~/constants/department-icon";
+import department from "../../prisma/department";
 
 interface NavigationProps {
   activeDepartments: {
@@ -27,11 +26,8 @@ interface NavigationProps {
 export default function Navigation({ activeDepartments }: NavigationProps) {
   for (const key of Object.keys(activeDepartments)) {
   }
-  const dep = activeDepartments.map((departments: { shortname: string }) =>
-    departments.shortname.toUpperCase(),
-  );
 
-  /*   const icon: [string, IconDefinition] = DEP_ICON[dep.shortname.toUpperCase()]; */
+  const icon = DEP_ICON;
 
   return (
     <>
@@ -55,8 +51,11 @@ export default function Navigation({ activeDepartments }: NavigationProps) {
             ) => (
               <div key={index} className="navigation__link">
                 <NavLink to={department.shortname}>
-                  {dep.shortname}
-                  {/* <FontAwesomeIcon icon={icon} /> */}
+                  {/* {department.shortname} */}
+
+                  <FontAwesomeIcon
+                    icon={icon[department.shortname.toUpperCase()]}
+                  />
                   <div>{department.fullname}</div>
                 </NavLink>
               </div>

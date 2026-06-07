@@ -37,11 +37,15 @@ export const handle = {
 
 export default function Department() {
   const { department } = useLoaderData();
-  const dep = department.shortname.toUpperCase();
-  const pageTitle = DEP_STRING[dep.shortname]?.title ?? department.fullname;
-  const pageIcon = DEP_ICON[dep];
+
+  const pageTitle =
+    DEP_STRING[department.shortname]?.title ?? department.fullname;
   const pageDescription =
-    DEP_STRING[dep.shortname]?.description ?? department.description;
+    DEP_STRING[department.shortname]?.title ?? department.fullname;
+  const pageIcon = DEP_ICON;
+
+  /*   const pageDescription =
+    DEP_STRING[department.shortname()]?.description ?? department.description; */
 
   return (
     <>
@@ -51,11 +55,14 @@ export default function Department() {
             <h2 className="text-2xl font-bold">{pageTitle}</h2>
           </div>
           <div className="content__icon">
-            <FontAwesomeIcon icon={pageIcon} />
+            <FontAwesomeIcon
+              icon={pageIcon[department.shortname.toUpperCase()]}
+            />
           </div>
         </div>
+        {department.shortname}
         <p>{pageDescription}</p>
-        <p>{dep}</p>
+
         <Outlet />
       </div>
     </>

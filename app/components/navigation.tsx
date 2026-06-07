@@ -6,28 +6,32 @@ import {
   faHome,
   faInfoCircle,
   faLock,
-  type IconDefinition,
 } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router";
 
 /* Local resources */
 import type { Key } from "react";
 import DEP_ICON from "~/constants/department-icon";
-import department from "../../prisma/department";
 
 interface NavigationProps {
   activeDepartments: {
     [key: string]: any;
+    Index: Key;
+    department_id: Key;
     shortname: string;
     fullname: string;
   };
+}
+
+interface NavIcon {
+  [key: string]: any;
 }
 
 export default function Navigation({ activeDepartments }: NavigationProps) {
   for (const key of Object.keys(activeDepartments)) {
   }
 
-  const navIcon = DEP_ICON;
+  const navIcon: NavIcon = DEP_ICON;
 
   return (
     <>

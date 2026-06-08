@@ -8,10 +8,10 @@ const DEP_META = {
   INS: { protected: false },
   MEC: { protected: false },
   NAV: { protected: false },
-  OFF: { protected: false },
-  PM: { protected: false },
+  /* OFF: { protected: false }, */
+  /* PM: { protected: false }, */
   PROC: { protected: false },
-  QHSE: { protected: false },
+  /* QHSE: { protected: false }, */
   WB: { protected: false },
 };
 

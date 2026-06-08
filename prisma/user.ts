@@ -4,7 +4,7 @@ import department from "./department";
 
 export default [
   {
-    login: "LIA",
+    login: "LarsIA",
     firstname: "Lars-Inge",
     surname: "Andresen",
     position: "Chief Executive Officer",
@@ -17,7 +17,7 @@ export default [
     department_id: 1,
   },
   {
-    login: "EFA",
+    login: "EirikFA",
     firstname: "Eirik F.",
     surname: "Andresen",
     position: "Chief Technical Officer",
@@ -30,7 +30,7 @@ export default [
     department_id: 1,
   },
   {
-    login: "CAPT",
+    login: "capt",
     firstname: "Captain",
     surname: null,
     position: "Captain",
@@ -43,7 +43,7 @@ export default [
     department_id: 2,
   },
   {
-    login: "CHENG",
+    login: "cheng",
     firstname: "Chief Engineer",
     surname: null,
     position: "Chief Engineer",
@@ -56,7 +56,7 @@ export default [
     department_id: 4,
   },
   {
-    login: "CHOFF",
+    login: "choff",
     firstname: "Chief Officer",
     surname: null,
     position: "Chief Officer",
@@ -69,7 +69,7 @@ export default [
     department_id: 2,
   },
   {
-    login: "CHSTEW",
+    login: "chstew",
     firstname: "Chief Steward",
     surname: null,
     position: "Chief Steward",
@@ -82,7 +82,7 @@ export default [
     department_id: 5,
   },
   {
-    login: "OBS",
+    login: "obs",
     firstname: "Observer",
     surname: null,
     position: "Operator and Shift Leader",
@@ -95,7 +95,7 @@ export default [
     department_id: 6,
   },
   {
-    login: "CHOBS",
+    login: "chobs",
     firstname: "Chief Observer",
     surname: null,
     position: "Chief Observer",
@@ -108,7 +108,7 @@ export default [
     department_id: 6,
   },
   {
-    login: "MEC",
+    login: "mec",
     firstname: "Mechanic",
     surname: null,
     position: "Mechanic",
@@ -121,7 +121,7 @@ export default [
     department_id: 7,
   },
   {
-    login: "CHMEC",
+    login: "chmec",
     firstname: "Chief Mechanic",
     surname: null,
     position: "Chief Mechanic",
@@ -134,7 +134,7 @@ export default [
     department_id: 7,
   },
   {
-    login: "NAV",
+    login: "nav",
     firstname: "Navigator",
     surname: null,
     position: "Navigator",
@@ -147,7 +147,7 @@ export default [
     department_id: 8,
   },
   {
-    login: "CHNAV",
+    login: "chnav",
     firstname: "Chief Navigator",
     surname: null,
     position: "Chief Navigator",
@@ -160,7 +160,7 @@ export default [
     department_id: 8,
   },
   {
-    login: "PROC",
+    login: "proc",
     firstname: "Processor",
     surname: null,
     position: "Processor",
@@ -173,7 +173,7 @@ export default [
     department_id: 10,
   },
   {
-    login: "CHPROC",
+    login: "chproc",
     firstname: "Chief Processor",
     surname: null,
     position: "Chief Processor",
@@ -186,7 +186,7 @@ export default [
     department_id: 10,
   },
   {
-    login: "COX",
+    login: "cox",
     firstname: "Coxswain",
     surname: null,
     position: "Coxswain",
@@ -199,7 +199,7 @@ export default [
     department_id: 12,
   },
   {
-    login: "QHSE",
+    login: "qhse",
     firstname: "QHSE",
     surname: null,
     position: "QHSE",
@@ -212,7 +212,7 @@ export default [
     department_id: 11,
   },
   {
-    login: "MEDIC",
+    login: "medic",
     firstname: "Medic",
     surname: null,
     position: "Medic",
@@ -222,6 +222,6 @@ export default [
     confirm_password:
       "$argon2id$v=19$m=19456,t=2,p=1$ODI3OWNmYTUyZTlkNDQyYTdlNGIxYWZmMGJjNGVlNDc$B2u6/QoM79Les4bXXMHvVirO7Y2bubnm++vkxBLIBOQ",
     status_id: 1,
-    department_id: 12,
+    department_id: 11,
   },
 ];

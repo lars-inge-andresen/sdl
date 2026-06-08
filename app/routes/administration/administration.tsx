@@ -2,7 +2,18 @@
 
 /* External resources */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLock } from "@fortawesome/free-solid-svg-icons";
+import {
+  faLock,
+  faIdCard,
+  faShip,
+  faBuilding,
+  faUserGroup,
+  faDiagramProject,
+  faSnowboarding,
+  faFolderTree,
+  faLocationDot,
+  faExclamationTriangle,
+} from "@fortawesome/free-solid-svg-icons";
 import { Outlet } from "react-router";
 
 /* Local resources */
@@ -16,13 +27,13 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export const handle = {
-  /*   menu__links: () => {
+  menu__links: () => {
     {
-      to: "/about/manual";
-      icon: faBookOpen;
+      to: "/administration/customer";
+      icon: faIdCard;
       label: "User manual";
     }
-  }, */
+  },
 };
 
 export default function Administration() {

@@ -9,7 +9,7 @@ import { getUserByAuthID, userLogin } from "~/models/user";
 import { getSession, commitSession } from "~/session";
 import { data, redirect, useActionData, useNavigation } from "react-router";
 
-export const action = async ({ request }) => {
+export const action = async ({ request }: any) => {
   const formData = await request.formData();
   const login = formData.get("login");
   const password = formData.get("password");
@@ -52,27 +52,26 @@ export default function Login() {
               This application requires a valid user account, and it seems that
               you are not logged in at the moment.
             </p>
-            <p>Please provide your username and password in the form below.</p>
             <p>
+              Please provide your username and password in the form below.
+              <br />
               If you don't have an account, contact your local administrator.
             </p>
 
-            <div>
-              <label>
-                <b>Login</b>
-              </label>
-            </div>
-            <div>
-              <input type="text" name="login" />
-            </div>
+            <div className="col-6">
+              <div className="mb-3">
+                <label className="form-label" htmlFor="username">
+                  <b>Username</b>
+                </label>
+                <input type="text" className="form-control" id="username" />
+              </div>
 
-            <div>
-              <label>
-                <b>Password</b>
-              </label>
-            </div>
-            <div>
-              <input type="password" name="password" />
+              <div className="mb-3">
+                <label className="form-label" htmlFor="password">
+                  <b>Password</b>
+                </label>
+                <input type="password" className="form-control" id="password" />
+              </div>
             </div>
 
             <div>

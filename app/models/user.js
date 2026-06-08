@@ -1,11 +1,11 @@
 /* Created by Lars-Inge Andresen */
 
 /* External resources */
-import { verify } from "crypto";
 import { prisma } from "../../prisma/prisma";
 import * as argon2 from "argon2";
 
-export async function getUserByAuthID(auth_id: number) {
+/* Get authorized user */
+export async function getUserByAuthID(auth_id) {
   return await prisma.user.findFirst({
     where: {
       auth_id,
@@ -17,7 +17,7 @@ export async function getUserByAuthID(auth_id: number) {
 }
 
 /* Used in login form */
-export async function userLogin(login: string, password: string) {
+export async function userLogin(login, password) {
   const user = await prisma.user.findFirst({
     where: {
       login,

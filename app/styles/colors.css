@@ -13,7 +13,7 @@
   --primary-menuFontColor: #000000;
   --primary-menuHighlight: #e25303;
 
-  --primary-contentBg: #e4e4e4;
+  --primary-contentBg: #f1f1f1;
   --primary-contentFontColor: #000000;
   --primary-contentHighlight: #e25303;
 
@@ -22,4 +22,6 @@
   --primary-footerHighlight: #ffffff;
 
   --warning-fontColor: #ff0000;
+
+  --primary-buttonFontColor: #ffffff;
 }

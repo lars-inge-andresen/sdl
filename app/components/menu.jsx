@@ -50,17 +50,17 @@ export default function Menu({ items, hideLogout, userRole }) {
           <div className="right">
             {!hideLogout && (
               <div className="login">
-                {/* <Form method="post" action="/logout"> */}
-                <button type="submit" className="btn btn-primary btn-sm">
-                  Log out
-                </button>
-                {/*     </Form> */}
+                <form method="post" action="/logout">
+                  <button type="submit" className="btn btn-primary btn-sm">
+                    Log out
+                  </button>
+                </form>
               </div>
             )}
 
             {hideLogout && (
               <div className="login">
-                <a className="btn btn-primary btn-sm" href="/login">
+                <a className="btn btn-primary btn-sm button" href="/login">
                   Log in
                 </a>
               </div>

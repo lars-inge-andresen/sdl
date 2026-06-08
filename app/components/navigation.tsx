@@ -8,9 +8,10 @@ import {
   faLock,
 } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router";
+import type { Key } from "react";
 
 /* Local resources */
-import type { Key } from "react";
+import { canAccess, Role } from "~/utilities/roles";
 import DEP_ICON from "~/constants/department-icon";
 
 interface NavigationProps {
@@ -21,13 +22,17 @@ interface NavigationProps {
     shortname: string;
     fullname: string;
   };
+  userRole: string;
 }
 
 interface NavIcon {
   [key: string]: any;
 }
 
-export default function Navigation({ activeDepartments }: NavigationProps) {
+export default function Navigation({
+  activeDepartments,
+  userRole,
+}: NavigationProps) {
   for (const key of Object.keys(activeDepartments)) {
   }
 
@@ -71,12 +76,14 @@ export default function Navigation({ activeDepartments }: NavigationProps) {
             </NavLink>
           </div>
 
-          <div className="navigation__link">
-            <NavLink to="/administration">
-              <FontAwesomeIcon icon={faLock} />
-              <div>Administration</div>
-            </NavLink>
-          </div>
+          {canAccess(userRole, Role.LOCALADMIN) && (
+            <div className="navigation__link">
+              <NavLink to="/administration">
+                <FontAwesomeIcon icon={faLock} />
+                <div>Administration</div>
+              </NavLink>
+            </div>
+          )}
         </div>
       </div>
     </>

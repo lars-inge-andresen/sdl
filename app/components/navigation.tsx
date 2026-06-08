@@ -6,6 +6,7 @@ import {
   faHome,
   faInfoCircle,
   faLock,
+  faToolbox,
 } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router";
 import type { Key } from "react";
@@ -70,20 +71,27 @@ export default function Navigation({
           )}
 
           <div className="navigation__link">
+            <NavLink to="/tools">
+              <FontAwesomeIcon icon={faToolbox} />
+              <div>Tools</div>
+            </NavLink>
+          </div>
+
+          <div className="navigation__link">
             <NavLink to="/about">
               <FontAwesomeIcon icon={faInfoCircle} />
               <div>About SDL</div>
             </NavLink>
           </div>
 
-          {canAccess(userRole, Role.LOCALADMIN) && (
-            <div className="navigation__link">
-              <NavLink to="/administration">
-                <FontAwesomeIcon icon={faLock} />
-                <div>Administration</div>
-              </NavLink>
-            </div>
-          )}
+          {/* {canAccess(userRole, Role.LOCALADMIN) && ( */}
+          <div className="navigation__link">
+            <NavLink to="/administration">
+              <FontAwesomeIcon icon={faLock} />
+              <div>Administration</div>
+            </NavLink>
+          </div>
+          {/* )} */}
         </div>
       </div>
     </>

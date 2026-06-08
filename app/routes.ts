@@ -7,6 +7,8 @@ export default [
 
   route(":dep", "./routes/department/department.jsx"),
 
+  route("tools", "./routes/tools/tools.tsx"),
+
   route("about", "./routes/about/about.tsx"),
 
   route("administration", "./routes/administration/administration.tsx"),

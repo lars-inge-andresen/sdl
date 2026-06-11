@@ -1,6 +1,6 @@
 /* Created by Lars-Inge Andresen */
 
-const DEP_STRING = {
+const DEP_STRINGS = {
   BRI: {
     title: "Bridge Crew",
     description:
@@ -79,4 +79,4 @@ const DEP_STRING = {
   },
 };
 
-export default DEP_STRING;
+export default DEP_STRINGS;

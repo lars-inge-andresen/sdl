@@ -16,7 +16,7 @@ import {
   faShip,
 } from "@fortawesome/free-solid-svg-icons";
 
-const DEP_ICON = {
+const DEP_ICONS = {
   BRI: faAnchor,
   DECK: faPersonBooth,
   ENG: faOilCan,
@@ -31,4 +31,4 @@ const DEP_ICON = {
   WB: faShip,
 };
 
-export default DEP_ICON;
+export default DEP_ICONS;

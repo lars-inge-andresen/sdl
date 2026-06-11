@@ -5,92 +5,106 @@ import {
   faNoteSticky,
   faArrowRightArrowLeft,
   faArrowDownWideShort,
+  type IconDefinition,
 } from "@fortawesome/free-solid-svg-icons";
-import { Role } from "../utilities/roles";
+import { ROLE_VALUES, type Role } from "../utilities/roles";
 
-const DAILY_LOG_MENU_ITEM = {
+export interface DepartmentMenuItem {
+  to: string;
+  icon: IconDefinition;
+  label: string;
+  role: Role;
+}
+
+const DAILY_LOG_MENU_ITEM: DepartmentMenuItem = {
   to: "dailylog",
   icon: faNoteSticky,
   label: "Daily Log",
+  role: ROLE_VALUES.GUEST,
 };
 
-const CHANGE_LOG_MENU_ITEM = {
+const CHANGE_LOG_MENU_ITEM: DepartmentMenuItem = {
   to: "changelog",
   icon: faArrowRightArrowLeft,
   label: "Change Log",
+  role: ROLE_VALUES.OPERATOR,
 };
 
-const DROPTEST_MENU_ITEM = {
+const DROPTEST_MENU_ITEM: DepartmentMenuItem = {
   to: "droptest",
   icon: faArrowDownWideShort,
   label: "Droptest",
+  role: ROLE_VALUES.OPERATOR,
 };
 
-function depmenu__link(dep: string, item: object, Role: string) {
-  return { ...item, to: "/${department}/${item.to}", Role };
+function depmenu__link(
+  department: string,
+  item: DepartmentMenuItem,
+): DepartmentMenuItem {
+  return { ...item, to: `/${department}/${item.to}` };
 }
 
 const DEP_MENU = {
   BRI: [
-    depmenu__link("bridge", DAILY_LOG_MENU_ITEM, ""),
-    depmenu__link("bridge", CHANGE_LOG_MENU_ITEM, ""),
+    depmenu__link("bridge", DAILY_LOG_MENU_ITEM),
+    depmenu__link("bridge", CHANGE_LOG_MENU_ITEM),
   ],
 
   DECK: [
-    depmenu__link("deck", DAILY_LOG_MENU_ITEM, ""),
-    depmenu__link("deck", CHANGE_LOG_MENU_ITEM, ""),
+    depmenu__link("deck", DAILY_LOG_MENU_ITEM),
+    depmenu__link("deck", CHANGE_LOG_MENU_ITEM),
   ],
 
-  ENG: [
-    depmenu__link("engine", DAILY_LOG_MENU_ITEM, ""),
-    depmenu__link("engine", CHANGE_LOG_MENU_ITEM, ""),
+  /*   ENG: [
+    depmenu__link("", DAILY_LOG_MENU_ITEM),
+    depmenu__link("", CHANGE_LOG_MENU_ITEM),
   ],
 
   GAL: [
-    depmenu__link("galley", DAILY_LOG_MENU_ITEM, ""),
-    depmenu__link("galley", CHANGE_LOG_MENU_ITEM, ""),
+    depmenu__link("", DAILY_LOG_MENU_ITEM),
+    depmenu__link("", CHANGE_LOG_MENU_ITEM),
   ],
 
   INS: [
-    depmenu__link("instrument", DAILY_LOG_MENU_ITEM, ""),
-    depmenu__link("instrument", CHANGE_LOG_MENU_ITEM, ""),
+    depmenu__link("", DAILY_LOG_MENU_ITEM),
+    depmenu__link("", CHANGE_LOG_MENU_ITEM),
   ],
 
   MEC: [
-    depmenu__link("mechanical", DAILY_LOG_MENU_ITEM, ""),
-    depmenu__link("mechanical", CHANGE_LOG_MENU_ITEM, ""),
-    depmenu__link("mechanical", DROPTEST_MENU_ITEM, ""),
+    depmenu__link("", DAILY_LOG_MENU_ITEM),
+    depmenu__link("", CHANGE_LOG_MENU_ITEM),
+    depmenu__link("", DROPTEST_MENU_ITEM),
   ],
 
   NAV: [
-    depmenu__link("navigation", DAILY_LOG_MENU_ITEM, ""),
-    depmenu__link("navigation", CHANGE_LOG_MENU_ITEM, ""),
+    depmenu__link("", DAILY_LOG_MENU_ITEM),
+    depmenu__link("", CHANGE_LOG_MENU_ITEM),
   ],
 
   OFF: [
-    depmenu__link("office", DAILY_LOG_MENU_ITEM, ""),
-    depmenu__link("office", CHANGE_LOG_MENU_ITEM, ""),
+    depmenu__link("", DAILY_LOG_MENU_ITEM),
+    depmenu__link("", CHANGE_LOG_MENU_ITEM),
   ],
 
   PM: [
-    depmenu__link("pm", DAILY_LOG_MENU_ITEM, ""),
-    depmenu__link("pm", CHANGE_LOG_MENU_ITEM, ""),
+    depmenu__link("", DAILY_LOG_MENU_ITEM),
+    depmenu__link("", CHANGE_LOG_MENU_ITEM),
   ],
 
   PROC: [
-    depmenu__link("processing", DAILY_LOG_MENU_ITEM, ""),
-    depmenu__link("processing", CHANGE_LOG_MENU_ITEM, ""),
+    depmenu__link("", DAILY_LOG_MENU_ITEM),
+    depmenu__link("", CHANGE_LOG_MENU_ITEM),
   ],
 
   QHSE: [
-    depmenu__link("qhse", DAILY_LOG_MENU_ITEM, ""),
-    depmenu__link("qhse", CHANGE_LOG_MENU_ITEM, ""),
+    depmenu__link("", DAILY_LOG_MENU_ITEM),
+    depmenu__link("", CHANGE_LOG_MENU_ITEM),
   ],
 
   WB: [
-    depmenu__link("workboat", DAILY_LOG_MENU_ITEM, ""),
-    depmenu__link("workboat", CHANGE_LOG_MENU_ITEM, ""),
-  ],
+    depmenu__link("", DAILY_LOG_MENU_ITEM),
+    depmenu__link("", CHANGE_LOG_MENU_ITEM),
+  ], */
 };
 
 export default DEP_MENU;

@@ -10,17 +10,15 @@ import {
   Scripts,
   ScrollRestoration,
   useLoaderData,
-  useMatch,
-  useMatches,
   useParams,
 } from "react-router";
 
 /* Local resources */
 import type { Route } from "./+types/root";
-import "./styles/styles.css";
 import "./styles/colors.css";
-/* import getAuthUser from "./utilities/getAuthUser"; */
-import { Role } from "./utilities/roles";
+import "./styles/styles.css";
+import getAuthUser from "./utilities/getAuthUser";
+import { ROLE_VALUES } from "./utilities/roles";
 
 import Header from "./components/header.js";
 import { getCustomer } from "./models/customer";
@@ -32,6 +30,7 @@ import { getActiveDepartments } from "./models/department";
 import Menu from "./components/menu.jsx";
 
 import Footer from "./components/footer";
+import { useTypedMatches } from "./hooks";
 import { getDeveloper } from "./models/developer";
 
 export const links: Route.LinksFunction = () => [
@@ -47,25 +46,28 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
-export async function loader(request: any) {
-  const [customer, vessel, developer, activeDepartments] = await Promise.all([
-    getCustomer(),
-    getVessel(),
-    getDeveloper(),
-    getActiveDepartments(),
-    /*       getAuthUser(request), */
-  ]);
-  return { customer, vessel, developer, activeDepartments };
+export async function loader({ request }: Route.LoaderArgs) {
+  const [customer, vessel, developer, activeDepartments, user] =
+    await Promise.all([
+      getCustomer(),
+      getVessel(),
+      getDeveloper(),
+      getActiveDepartments(),
+      getAuthUser(request),
+    ]);
+  return { customer, vessel, developer, activeDepartments, user };
 }
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const data = useLoaderData();
   const params = useParams();
-  const matches = useMatches();
+  const matches = useTypedMatches();
   const matchWithMenu = matches.find(
     (match) => match.handle && match.handle.menu__links,
   );
-  const menu__links: string = matchWithMenu?.handle.menu__links(params) ?? [];
+  const menu__links = params.dep
+    ? matchWithMenu?.handle.menu__links(params.dep)
+    : [];
 
   return (
     <html lang="en">
@@ -90,13 +92,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
         <Navigation
           activeDepartments={data.activeDepartments}
-          userRole={data.user?.role ?? Role.GUEST}
+          userRole={data.user?.role ?? ROLE_VALUES.GUEST}
         />
 
         <Menu
           items={menu__links}
           hideLogout={!data.user}
-          userRole={data.user?.role ?? Role.GUEST}
+          userRole={data.user?.role ?? ROLE_VALUES.GUEST}
         />
 
         <div className="content__container">{children}</div>

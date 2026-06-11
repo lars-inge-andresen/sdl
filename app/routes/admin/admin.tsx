@@ -7,17 +7,17 @@ import {
   faIdCard,
   faShip,
   faBuilding,
-  faUserGroup,
   faDiagramProject,
   faSnowboarding,
   faFolderTree,
   faLocationDot,
-  faExclamationTriangle,
+  faUserFriends,
+  faTriangleExclamation,
 } from "@fortawesome/free-solid-svg-icons";
 import { Outlet } from "react-router";
 
 /* Local resources */
-import type { Route } from "./+types/administration";
+import type { Route } from "./+types/admin";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -27,13 +27,53 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export const handle = {
-  menu__links: () => {
+  menu__links: () => [
     {
-      to: "/administration/customer";
-      icon: faIdCard;
-      label: "User manual";
-    }
-  },
+      to: "/admin/customer",
+      icon: faIdCard,
+      label: "Customer",
+    },
+    {
+      to: "/admin/vessel",
+      icon: faShip,
+      label: "Vessel",
+    },
+    {
+      to: "/admin/department",
+      icon: faBuilding,
+      label: "Department",
+    },
+    {
+      to: "/admin/user",
+      icon: faUserFriends,
+      label: "User",
+    },
+    {
+      to: "/admin/project",
+      icon: faDiagramProject,
+      label: "Project",
+    },
+    {
+      to: "/admin/activity",
+      icon: faSnowboarding,
+      label: "Activity",
+    },
+    {
+      to: "/admin/category",
+      icon: faFolderTree,
+      label: "Category",
+    },
+    {
+      to: "/admin/position",
+      icon: faLocationDot,
+      label: "Position",
+    },
+    {
+      to: "/admin/failure",
+      icon: faTriangleExclamation,
+      label: "Failure",
+    },
+  ],
 };
 
 export default function Administration() {
@@ -48,16 +88,7 @@ export default function Administration() {
             <FontAwesomeIcon icon={faLock} />
           </div>
         </div>
-        <p>
-          This section contains all the tools you need for administer the local
-          installation of the application.
-        </p>
-        <p>
-          You will not be able to administer global setup, i.e., departments,
-          activities and categoris since these are global settings. Please
-          contact your administrator if you cannot find what you are looking
-          for.
-        </p>
+
         <Outlet />
       </div>
     </>

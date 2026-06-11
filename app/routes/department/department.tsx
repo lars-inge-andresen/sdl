@@ -8,9 +8,11 @@ import { Outlet, useLoaderData, data } from "react-router";
 import requireAuthSession from "~/utilities/requireAuthSession";
 import { getDepartmentByShortname } from "~/models/department.js";
 import DEP_META from "~/constants/department-meta";
-import DEP_ICON from "~/constants/department-icon";
-import DEP_STRING from "~/constants/department-string";
+import DEP_ICONS from "~/constants/department-icon";
+import DEP_STRINGS from "~/constants/department-string";
 import DEP_MENU from "~/constants/department-menu";
+import type { RouteHandle } from "~/types";
+import type { Route } from "./+types/department";
 
 export function meta() {
   return [
@@ -19,12 +21,15 @@ export function meta() {
   ];
 }
 
-export const loader = async ({ request, params }) => {
+export const loader = async ({ request, params }: Route.LoaderArgs) => {
   const department = await getDepartmentByShortname(params.dep);
   if (!department) {
     throw new Response("Page not found", { status: 404 });
   }
-  if (DEP_META[department.shortname.toUpperCase()]?.protected !== false) {
+  if (
+    DEP_META[department.shortname.toUpperCase() as keyof typeof DEP_META]
+      ?.protected !== false
+  ) {
     await requireAuthSession(request);
   }
   /*   console.log(department); */
@@ -32,19 +37,17 @@ export const loader = async ({ request, params }) => {
 };
 
 export const handle = {
-  menu__links: (params) => DEP_MENU[params.dep.toUpperCase()],
-};
+  menu__links: (department) =>
+    DEP_MENU[department.toUpperCase() as keyof typeof DEP_MENU] ?? [],
+} satisfies RouteHandle;
 
 export default function Department() {
   const { department } = useLoaderData();
 
-  const pageTitle =
-    DEP_STRING[department.shortname.toUpperCase()]?.title ??
-    department.fullname;
-  const pageIcon = DEP_ICON;
-  const pageDescription =
-    DEP_STRING[department.shortname.toUpperCase()]?.description ??
-    department.fullname;
+  const depStrings =
+    DEP_STRINGS[department.shortname.toUpperCase() as keyof typeof DEP_STRINGS];
+  const pageTitle = depStrings?.title ?? department.fullname;
+  const pageDescription = depStrings?.description ?? department.fullname;
 
   return (
     <>
@@ -55,7 +58,11 @@ export default function Department() {
           </div>
           <div className="content__icon">
             <FontAwesomeIcon
-              icon={pageIcon[department.shortname.toUpperCase()]}
+              icon={
+                DEP_ICONS[
+                  department.shortname.toUpperCase() as keyof typeof DEP_ICONS
+                ]
+              }
             />
           </div>
         </div>

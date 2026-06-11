@@ -11,6 +11,7 @@ import { NavLink } from "react-router";
 
 /* Local resources */
 import { canAccess } from "../utilities/roles.js";
+import department from "../../prisma/department.js";
 
 export default function Menu({ items, hideLogout, userRole }) {
   return (
@@ -23,12 +24,12 @@ export default function Menu({ items, hideLogout, userRole }) {
               .map((item) => {
                 if (item.external) {
                   return (
-                    <div key={item.to} className="menu__link">
+                    <div key={item.id} className="menu__link">
                       <a href={item.to} target="_blank" rel="noreferrer">
-                        <div className="menu_icon">
+                        <div>
                           <FontAwesomeIcon icon={item.icon} />
                         </div>
-                        <div className="menu_label">{item.label}</div>
+                        <div>{item.label}</div>
                       </a>
                     </div>
                   );
@@ -37,10 +38,10 @@ export default function Menu({ items, hideLogout, userRole }) {
                 return (
                   <div key={item.to} className="menu__link">
                     <NavLink to={item.to}>
-                      <div className="menu_icon">
+                      <div>
                         <FontAwesomeIcon icon={item.icon} />
                       </div>
-                      <div className="menu_label">{item.label}</div>
+                      <div>{item.label}</div>
                     </NavLink>
                   </div>
                 );

@@ -12,8 +12,8 @@ import { NavLink } from "react-router";
 import type { Key } from "react";
 
 /* Local resources */
-import { canAccess, Role } from "~/utilities/roles";
-import DEP_ICON from "~/constants/department-icon";
+import { canAccess, ROLE_VALUES } from "~/utilities/roles";
+import DEP_ICONS from "~/constants/department-icon";
 
 interface NavigationProps {
   activeDepartments: {
@@ -37,7 +37,7 @@ export default function Navigation({
   for (const key of Object.keys(activeDepartments)) {
   }
 
-  const navIcon: NavIcon = DEP_ICON;
+  const navIcon: NavIcon = DEP_ICONS;
 
   return (
     <>
@@ -86,7 +86,7 @@ export default function Navigation({
 
           {/* {canAccess(userRole, Role.LOCALADMIN) && ( */}
           <div className="navigation__link">
-            <NavLink to="/administration">
+            <NavLink to="/admin">
               <FontAwesomeIcon icon={faLock} />
               <div>Administration</div>
             </NavLink>

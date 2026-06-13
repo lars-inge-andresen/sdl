@@ -1,7 +1,5 @@
 /* Created by Lars-Inge Andresen */
 
-import department from "./department";
-
 export default [
   {
     login: "LarsIA",

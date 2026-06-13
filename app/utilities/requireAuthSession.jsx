@@ -4,7 +4,7 @@
 import { redirect } from "react-router";
 
 /* Local resources */
-import { getSession } from "../session";
+import { getSession } from "~/session";
 
 export default async function requireAuthSession(request) {
   const session = await getSession(request.headers.get("Cookie"));

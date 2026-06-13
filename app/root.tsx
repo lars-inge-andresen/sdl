@@ -95,13 +95,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
           userRole={data.user?.role ?? ROLE_VALUES.GUEST}
         />
 
-        <Menu
-          items={menu__links}
-          hideLogout={!data.user}
-          userRole={data.user?.role ?? ROLE_VALUES.GUEST}
-        />
-
-        <div className="content__container">{children}</div>
+        <div className="content__container">
+          <Menu
+            items={menu__links}
+            hideLogout={!data.user}
+            userRole={data.user?.role ?? ROLE_VALUES.GUEST}
+          />
+          {children}
+        </div>
 
         <Footer developer={data.developer} />
 

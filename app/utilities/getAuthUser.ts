@@ -8,14 +8,11 @@ export default async function getAuthUser(request: Request) {
   const session = await getSession(request.headers.get("Cookie"));
   const auth_id = session.get("auth_id");
 
-  console.log(auth_id);
-
   if (!auth_id) {
     return null;
   }
 
   const user = await getUserByAuthID(auth_id);
-  console.log(user);
 
   return user;
 }

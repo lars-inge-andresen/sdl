@@ -70,7 +70,7 @@ export default function Navigation({
             ),
           )}
 
-          <div className="navigation__link">
+          {/*           <div className="navigation__link">
             <NavLink to="/tools">
               <FontAwesomeIcon icon={faToolbox} />
               <div>Tools</div>
@@ -82,7 +82,7 @@ export default function Navigation({
               <FontAwesomeIcon icon={faInfoCircle} />
               <div>About SDL</div>
             </NavLink>
-          </div>
+          </div> */}
 
           {/* {canAccess(userRole, Role.LOCALADMIN) && ( */}
           <div className="navigation__link">

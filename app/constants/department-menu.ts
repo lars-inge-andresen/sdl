@@ -6,6 +6,8 @@ import {
   faArrowRightArrowLeft,
   faArrowDownWideShort,
   type IconDefinition,
+  faToolbox,
+  faInfoCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { ROLE_VALUES, type Role } from "../utilities/roles";
 
@@ -27,7 +29,7 @@ const CHANGE_LOG_MENU_ITEM: DepartmentMenuItem = {
   to: "changelog",
   icon: faArrowRightArrowLeft,
   label: "Change Log",
-  role: ROLE_VALUES.OPERATOR,
+  role: ROLE_VALUES.GUEST,
 };
 
 const DROPTEST_MENU_ITEM: DepartmentMenuItem = {
@@ -37,6 +39,20 @@ const DROPTEST_MENU_ITEM: DepartmentMenuItem = {
   role: ROLE_VALUES.OPERATOR,
 };
 
+const TOOLS_MENU_ITEM: DepartmentMenuItem = {
+  to: "tools",
+  icon: faToolbox,
+  label: "Tools",
+  role: ROLE_VALUES.GUEST,
+};
+
+const ABOUT_MENU_ITEM: DepartmentMenuItem = {
+  to: "about",
+  icon: faInfoCircle,
+  label: "About",
+  role: ROLE_VALUES.GUEST,
+};
+
 function depmenu__link(
   department: string,
   item: DepartmentMenuItem,
@@ -44,10 +60,12 @@ function depmenu__link(
   return { ...item, to: `/${department}/${item.to}` };
 }
 
-const DEP_MENU = {
+const DEP_MENUS = {
   BRI: [
     depmenu__link("bridge", DAILY_LOG_MENU_ITEM),
     depmenu__link("bridge", CHANGE_LOG_MENU_ITEM),
+    depmenu__link("bridge", TOOLS_MENU_ITEM),
+    depmenu__link("bridge", ABOUT_MENU_ITEM),
   ],
 
   DECK: [
@@ -107,4 +125,4 @@ const DEP_MENU = {
   ], */
 };
 
-export default DEP_MENU;
+export default DEP_MENUS;

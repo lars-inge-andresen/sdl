@@ -16,7 +16,7 @@ const { getSession, commitSession, destroySession } =
       maxAge: 60 * 60 * 24, // 86 400 seconds = 24 hours
       path: "/",
       sameSite: "Strict",
-      secrets: [import.meta.env.COOKIE_SECRET],
+      secrets: [import.meta.env.VITE_COOKIE_SECRET],
       secure: import.meta.env.NODE_ENV !== "development",
     },
   });

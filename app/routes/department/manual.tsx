@@ -6,7 +6,7 @@ import { faInfoCircle, faBookOpen } from "@fortawesome/free-solid-svg-icons";
 import { Outlet } from "react-router";
 
 /* Local resources */
-import type { Route } from "./+types/about";
+import type { Route } from "./+types/department";
 
 export function meta({}: Route.MetaArgs) {
   return [

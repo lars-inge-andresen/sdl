@@ -8,16 +8,20 @@ import {
 export default [
   index("routes/home.tsx"),
 
-  route("login", "./routes/login.tsx"),
+  route("login", "./routes/login.jsx"),
 
-  route(":dep", "./routes/department/department.tsx"),
+  ...prefix(":dep", [
+    index("./routes/department/department.tsx"),
+    route("dailylog", "./routes/department/dailylog.tsx"),
+  ]),
 
   route("tools", "./routes/tools/tools.tsx"),
 
-  ...prefix("about", [
-    index("./routes/about/about.tsx"),
-    route("manual", "./routes/about/manual.tsx"),
-  ]),
+  // ...prefix("about", [
+  //index("./routes/about/about.tsx"),
+  // route("about", "./routes/about/about.tsx"),
+  // route("manual", "./routes/about/manual.tsx"),
+  //]),
 
   ...prefix("admin", [
     index("./routes/admin/admin.tsx"),

@@ -2,16 +2,10 @@
 
 /* External resources */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faHome,
-  faInfoCircle,
-  faLock,
-} from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router";
 
 /* Local resources */
 import { canAccess } from "../utilities/roles.js";
-import department from "../../prisma/department.js";
 
 export default function Menu({ items, hideLogout, userRole }) {
   return (

@@ -17,9 +17,7 @@ export default function Header({ customer, vessel, user }: HeaderProps) {
           <div className="left">
             <div>{customer?.fullname || "Customer"}</div>
             <div>{vessel?.fullname || "Vessel"}</div>
-            <div>
-              {user?.firstname} {user?.surname || "Guest"}
-            </div>
+            <div>{user?.firstname || "Guest"}</div>
           </div>
           <div className="middle">
             <div>

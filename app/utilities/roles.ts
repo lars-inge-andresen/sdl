@@ -11,8 +11,6 @@ export const ROLE_VALUES = {
   GUEST: "GUEST",
 } as const;
 
-export type Role = keyof typeof ROLE_VALUES;
-
 export const ROLE_LEVELS: Record<Role, number> = {
   GUEST: 10,
   CLIENT: 20,
@@ -23,6 +21,8 @@ export const ROLE_LEVELS: Record<Role, number> = {
   LOCALADMIN: 60,
   GLOBALADMIN: 70,
 };
+
+export type Role = keyof typeof ROLE_VALUES;
 
 export function canAccess(userRole: Role, targetRole: Role) {
   return ROLE_LEVELS[userRole] >= ROLE_LEVELS[targetRole];

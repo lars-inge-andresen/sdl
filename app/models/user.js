@@ -15,6 +15,7 @@ export async function getUserByAuthID(auth_id) {
     include: {
       department: true,
     },
+    
   });
 }
 
@@ -31,7 +32,7 @@ export async function userLogin(login, password) {
   return null;
 }
 
-/* try {
+try {
   async function userLogin(login, password) {
     const user = await prisma.user.findFirst({
       where: {
@@ -53,4 +54,4 @@ export async function userLogin(login, password) {
     }
   }
   throw e;
-} */
+}

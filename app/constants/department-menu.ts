@@ -22,14 +22,14 @@ const DAILY_LOG_MENU_ITEM: DepartmentMenuItem = {
   to: "dailylog",
   icon: faNoteSticky,
   label: "Daily Log",
-  role: ROLE_VALUES.GUEST,
+  role: ROLE_VALUES.OPERATOR,
 };
 
 const CHANGE_LOG_MENU_ITEM: DepartmentMenuItem = {
   to: "changelog",
   icon: faArrowRightArrowLeft,
   label: "Change Log",
-  role: ROLE_VALUES.GUEST,
+  role: ROLE_VALUES.OPERATOR,
 };
 
 const DROPTEST_MENU_ITEM: DepartmentMenuItem = {
@@ -39,7 +39,7 @@ const DROPTEST_MENU_ITEM: DepartmentMenuItem = {
   role: ROLE_VALUES.OPERATOR,
 };
 
-const TOOLS_MENU_ITEM: DepartmentMenuItem = {
+/* const TOOLS_MENU_ITEM: DepartmentMenuItem = {
   to: "tools",
   icon: faToolbox,
   label: "Tools",
@@ -51,7 +51,7 @@ const ABOUT_MENU_ITEM: DepartmentMenuItem = {
   icon: faInfoCircle,
   label: "About",
   role: ROLE_VALUES.GUEST,
-};
+}; */
 
 function depmenu__link(
   department: string,
@@ -64,8 +64,6 @@ const DEP_MENUS = {
   BRI: [
     depmenu__link("bridge", DAILY_LOG_MENU_ITEM),
     depmenu__link("bridge", CHANGE_LOG_MENU_ITEM),
-    depmenu__link("bridge", TOOLS_MENU_ITEM),
-    depmenu__link("bridge", ABOUT_MENU_ITEM),
   ],
 
   DECK: [
@@ -73,7 +71,7 @@ const DEP_MENUS = {
     depmenu__link("deck", CHANGE_LOG_MENU_ITEM),
   ],
 
-  /*   ENG: [
+    ENG: [
     depmenu__link("", DAILY_LOG_MENU_ITEM),
     depmenu__link("", CHANGE_LOG_MENU_ITEM),
   ],
@@ -122,7 +120,7 @@ const DEP_MENUS = {
   WB: [
     depmenu__link("", DAILY_LOG_MENU_ITEM),
     depmenu__link("", CHANGE_LOG_MENU_ITEM),
-  ], */
+  ],
 };
 
 export default DEP_MENUS;

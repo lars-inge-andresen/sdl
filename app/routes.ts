@@ -9,6 +9,7 @@ export default [
   index("routes/home.tsx"),
 
   route("login", "./routes/login.jsx"),
+  route("logout", "./routes/logout.jsx"),
 
   ...prefix(":dep", [
     index("./routes/department/department.tsx"),

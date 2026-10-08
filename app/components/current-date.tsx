@@ -31,5 +31,4 @@ const CurrentDate = () => {
     </>
   );
 };
-
 export default CurrentDate;

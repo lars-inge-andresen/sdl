@@ -4,7 +4,7 @@
 import { useLoaderData } from "react-router";
 
 /* Local resources */
-import { getVessel, update } from "~/models/vessel";
+// import { getVessel, update } from "~/models/vessel";
 
 export function meta() {
   return [
@@ -14,12 +14,12 @@ export function meta() {
 }
 
 export async function loader() {
-  const [vessel] = await Promise.all([getVessel()]);
+  // const [vessel] = await Promise.all([getVessel()]);
   return { vessel };
 }
 
 export default function AdminVessel() {
-  const data = useLoaderData();
+  // const data = useLoaderData();
 
   return (
     <>

@@ -70,7 +70,7 @@ export default function Navigation({
             ),
           )}
 
-          <div className="navigation__link">
+          {/* <div className="navigation__link">
             <NavLink to="/tools">
               <FontAwesomeIcon icon={faToolbox} />
               <div>Tools</div>
@@ -84,14 +84,14 @@ export default function Navigation({
             </NavLink>
           </div>
 
-          {/* {canAccess(userRole, Role.LOCALADMIN) && ( */}
+          {canAccess(userRole, Role.LOCALADMIN) && (
           <div className="navigation__link">
             <NavLink to="/admin">
               <FontAwesomeIcon icon={faLock} />
               <div>Administration</div>
             </NavLink>
           </div>
-          {/* )} */}
+          )} */}
         </div>
       </div>
     </>

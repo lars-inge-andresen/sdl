@@ -4,14 +4,14 @@
 import { data, useLoaderData } from "react-router";
 
 /* Local resources */
-import { getVessel, update } from "~/models/vessel";
+import { getCustomer } from "~/models/customer";
 
 export const loader = async () => {
-  return data(getVessel);
+  return data(getCustomer);
 };
 
 export default function AdminCustomer() {
-  const vessel = useLoaderData();
+  // const customer = useLoaderData();
 
   return <>Customer</>;
 }

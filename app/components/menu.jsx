@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink } from "react-router";
 
 /* Local resources */
-import { canAccess } from "../utilities/roles.js";
+import { canAccess } from "~/utilities/roles";
 
 export default function Menu({ items, hideLogout, userRole }) {
   return (

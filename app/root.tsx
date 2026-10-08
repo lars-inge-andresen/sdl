@@ -66,7 +66,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
     (match) => match.handle && match.handle.menu__links,
   );
   const menu__links = params.dep
-    ? matchWithMenu?.handle.menu__links(params.dep)
+    ? (matchWithMenu?.handle.menu__links(params.dep) ?? [])
     : [];
 
   return (
@@ -99,7 +99,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <Menu
             items={menu__links}
             hideLogout={!data.user}
-            userRole={data.user?.role ?? ROLE_VALUES.GUEST}
+            userRole={data.user?.role}
           />
           {children}
         </div>
@@ -128,35 +128,25 @@ export default function App() {
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
-  let message = "Oops!";
-  let details = "An unexpected error occurred.";
-  let stack: string | undefined;
-
   if (isRouteErrorResponse(error)) {
-    message = error.status === 404 ? "404" : "Error";
-    details =
-      error.status === 404
-        ? "It seems that you are not authorized to access this page. Please log in with the correct credentials."
-        : error.statusText || details;
-  } else if (import.meta.env.DEV && error && error instanceof Error) {
-    details = error.message;
-    stack = error.stack;
-  }
-
-  return (
-    <main className="pt-10 p-10 container mx-auto">
-      <div className="content">
-        <div className="warning">
-          <h1 className="text-xl font-bold">{message}</h1>
-          <p>{details}</p>
-        </div>
-
-        {stack && (
-          <pre className="w-full p-4 overflow-x-auto">
-            <code>{stack}</code>
-          </pre>
-        )}
+    return (
+      <>
+        <h1>
+          {error.status} {error.statusText}
+        </h1>
+        <p>{error.data}</p>
+      </>
+    );
+  } else if (error instanceof Error) {
+    return (
+      <div>
+        <h1>Error</h1>
+        <p>{error.message}</p>
+        <p>The stack trace is:</p>
+        <pre>{error.stack}</pre>
       </div>
-    </main>
-  );
+    );
+  } else {
+    return <h1>Unknown Error</h1>;
+  }
 }

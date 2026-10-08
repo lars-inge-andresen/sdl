@@ -7,14 +7,12 @@ import { Outlet, useLoaderData, data } from "react-router";
 /* Local resources */
 import type { RouteHandle } from "~/types";
 import type { Route } from "./+types/department";
-import requireAuthSession from "~/utilities/requireAuthSession";
 import { getDepartmentByShortname } from "~/models/department.js";
 import DEP_META from "~/constants/department-meta";
 import DEP_ICONS from "~/constants/department-icon";
 import DEP_STRINGS from "~/constants/department-string";
 import DEP_MENU from "~/constants/department-menu";
-import requireRole from "~/utilities/requireRole";
-import { ROLE_VALUES } from "~/utilities/roles";
+import requireAuthSession from "~/utilities/requireAuthSession";
 
 export function meta() {
   return [
@@ -32,9 +30,7 @@ export const loader = async ({ request, params }: Route.LoaderArgs) => {
     DEP_META[department.shortname.toUpperCase() as keyof typeof DEP_META]
       ?.protected !== false
   ) {
-    // await requireAuthSession(request);
-    await requireRole(request, ROLE_VALUES.OPERATOR);
-    return null;
+    await requireAuthSession(request);
   }
   /*   console.log(department); */
   return data({ department });

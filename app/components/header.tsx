@@ -4,9 +4,9 @@
 import CurrentDate from "./current-date";
 
 interface HeaderProps {
-  customer: { fullname: string };
-  vessel: { fullname: string };
-  user: { firstname: string; surname: string };
+  customer?: { fullname: string };
+  vessel?: { fullname: string };
+  user?: { firstname: string; surname: string };
 }
 
 export default function Header({ customer, vessel, user }: HeaderProps) {
@@ -17,7 +17,9 @@ export default function Header({ customer, vessel, user }: HeaderProps) {
           <div className="left">
             <div>{customer?.fullname || "Customer"}</div>
             <div>{vessel?.fullname || "Vessel"}</div>
-            <div>{user?.firstname || "Guest"}</div>
+            <div>
+              {user?.firstname || "Guest"} {user?.surname}
+            </div>
           </div>
           <div className="middle">
             <div>

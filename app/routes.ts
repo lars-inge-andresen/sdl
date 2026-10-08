@@ -11,21 +11,16 @@ export default [
   route("login", "./routes/login.jsx"),
   route("logout", "./routes/logout.jsx"),
 
-  ...prefix(":dep", [
-    index("./routes/department/department.tsx"),
+  route(":dep", "./routes/department/department.tsx", [
     route("dailylog", "./routes/department/dailylog.tsx"),
+    route("changelog", "./routes/department/changelog.tsx"),
   ]),
 
   route("tools", "./routes/tools/tools.tsx"),
 
-  // ...prefix("about", [
-  //index("./routes/about/about.tsx"),
-  // route("about", "./routes/about/about.tsx"),
-  // route("manual", "./routes/about/manual.tsx"),
-  //]),
+  route("about", "./routes/about/about.tsx"),
 
-  ...prefix("admin", [
-    index("./routes/admin/admin.tsx"),
+  route("admin", "./routes/admin/admin.tsx", [
     route("customer", "./routes/admin/customer.tsx"),
     route("vessel", "./routes/admin/vessel.jsx"),
     route("department", "./routes/admin/department.tsx"),
@@ -36,6 +31,4 @@ export default [
     route("position", "./routes/admin/position.tsx"),
     route("failure", "./routes/admin/failure.tsx"),
   ]),
-
-  /*   route("*", "./routes/home.tsx"), */
 ] satisfies RouteConfig;

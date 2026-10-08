@@ -13,18 +13,18 @@ export function meta({}: Route.MetaArgs) {
     { title: "Daily Log" },
     {
       name: "description",
-      content: "Daily Log.",
+      content: "Change Log.",
     },
   ];
 }
 
-export default function DailyLog() {
+export default function ChangeLog() {
   return (
     <>
       <div className="content">
         <div className="content__header">
           <div className="content__title">
-            <h2 className="text-2xl font-bold">Daily Log</h2>
+            <h2 className="text-2xl font-bold">Change Log</h2>
           </div>
           <div className="content__icon">
             <FontAwesomeIcon icon={faNoteSticky} />
